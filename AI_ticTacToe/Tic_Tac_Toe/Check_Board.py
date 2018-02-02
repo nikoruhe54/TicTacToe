@@ -52,58 +52,37 @@ class CheckBoard:
     def checkForWin(self):
         #check to see if the computer has won
         if(self.game.Spaces[1].state + self.game.Spaces[2].state + self.game.Spaces[3].state == 3):
-            print("game over, computer wins")
             return(1)
         elif(self.game.Spaces[4].state + self.game.Spaces[5].state + self.game.Spaces[6].state == 3):
-            print("game over, computer wins")
             return(1)
         elif(self.game.Spaces[7].state + self.game.Spaces[8].state + self.game.Spaces[9].state == 3):
-            print("game over, computer wins")
             return(1)
         elif(self.game.Spaces[1].state + self.game.Spaces[4].state + self.game.Spaces[7].state == 3):
-            print("game over, computer wins")
             return(1)
         elif(self.game.Spaces[2].state + self.game.Spaces[5].state + self.game.Spaces[8].state == 3):
-            print("game over, computer wins")
             return(1)
         elif(self.game.Spaces[3].state + self.game.Spaces[6].state + self.game.Spaces[9].state == 3):
-            print("game over, computer wins")
             return(1)
         elif(self.game.Spaces[1].state + self.game.Spaces[5].state + self.game.Spaces[9].state == 3):
-            print("game over, computer wins")
             return(1)
         elif(self.game.Spaces[3].state + self.game.Spaces[5].state + self.game.Spaces[7].state == 3):
-            print("game over, computer wins")
             return(1)
         #check to see if the human player has won
         if(self.game.Spaces[1].state + self.game.Spaces[2].state + self.game.Spaces[3].state == 30):
-            print("game over, human wins")
             return(-1)
         elif(self.game.Spaces[4].state + self.game.Spaces[5].state + self.game.Spaces[6].state == 30):
-            print("game over, human wins")
             return(-1)
         elif(self.game.Spaces[7].state + self.game.Spaces[8].state + self.game.Spaces[9].state == 30):
-            print("game over, human wins")
             return(-1)
         elif(self.game.Spaces[1].state + self.game.Spaces[4].state + self.game.Spaces[7].state == 30):
-            print("game over, human wins")
             return(-1)
-        elif(self.game.Spaces[2].state + self.game.Spaces[5].state + self.game.Spaces[8].state == 30):
-            print("game over, human wins")
             return(-1)
         elif(self.game.Spaces[3].state + self.game.Spaces[6].state + self.game.Spaces[9].state == 30):
-            print("game over, human wins")
             return(-1)
         elif(self.game.Spaces[1].state + self.game.Spaces[5].state + self.game.Spaces[9].state == 30):
-            print("game over, human wins")
             return(-1)
         elif(self.game.Spaces[3].state + self.game.Spaces[5].state + self.game.Spaces[7].state == 30):
-            print("game over, human wins")
             return(-1)
         else:
             return(0)
 
-    def resetGame(self):
-        for i in range (1,10):
-            self.game.Spaces[i].state = 0
-            self.game.Spaces[i].state = 0

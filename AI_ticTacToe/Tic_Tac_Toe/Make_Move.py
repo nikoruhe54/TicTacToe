@@ -12,8 +12,7 @@ def makeComputerMove():
         if (check != "none"):
             blockOpponent(check)
             return(0)
-    if (checkBoard.checkForWin() == 0):
-        scanForBestMove()
+    scanForBestMove()
 
 def scanForBestMove():
     slot = -1
@@ -21,6 +20,7 @@ def scanForBestMove():
     updateWinningMoves()
     for i in range(1,10):
         if(checkBoard.game.Spaces[i].state == 0 and checkBoard.game.Spaces[i].winMoves >= winningMoves):
+            #if(checkBoard.game.Spaces[i].winMoves == winningMoves and slot != 5):
             winningMoves = checkBoard.game.Spaces[i].winMoves
             slot = i
     if(slot == -1):
@@ -35,10 +35,8 @@ def playMove(position, player):
         checkBoard.game.Spaces[position].state = 1
     if(player == "human"):
         checkBoard.game.Spaces[position].state = 10
-
     print(player + " took space: ")
     print(position)
-    checkBoard.checkForWin()
 
 def updateWinningMoves():
     #reset all the winning moves
@@ -207,3 +205,13 @@ def makeWinningMove(target):
             if(checkBoard.game.Spaces[i].state == 0):
                 playMove(i, "computer")
             i = i + 2
+
+def resetGame():
+    for x in range(1, 10):
+        checkBoard.game.Spaces[x].state = 0
+        if (x % 2 == 1 and x != 5):
+            checkBoard.game.Spaces[x].winMoves = 3
+        elif (x % 2 == 0):
+            checkBoard.game.Spaces[x].winMoves = 2
+        else:
+            checkBoard.game.Spaces[x].winMoves = 4
