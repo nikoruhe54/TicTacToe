@@ -1,3 +1,9 @@
+#Niko Ruhe
+#AI Class
+#University of Akron
+#Dr. Chan
+#02/18/2018
+
 import Make_Move
 import Make_4_by_4_Move
 import Draw_Board
@@ -80,7 +86,7 @@ def Play4by4(level, humanTurn):
                 while (validMove == -1):
                     try:
                         #make the human move
-                        YourMove = input("What move would you like to make? (1-9)")
+                        YourMove = input("What move would you like to make? (1-16)")
                         validMove = Make_4_by_4_Move.playMove(YourMove, "human")
                         Draw_Board.draw4by4Board()
                     except:
@@ -108,7 +114,7 @@ def Play4by4(level, humanTurn):
                 while (validMove == -1):
                     try:
                         #make human move
-                        YourMove = input("What move would you like to make? (1-9)")
+                        YourMove = input("What move would you like to make? (1-16)")
                         validMove = Make_4_by_4_Move.playMove(YourMove, "human")
                         Draw_Board.draw4by4Board()
                     except:

@@ -1,3 +1,9 @@
+#Niko Ruhe
+#AI Class
+#University of Akron
+#Dr. Chan
+#02/18/2018
+
 import Make_Move
 import Make_4_by_4_Move
 
