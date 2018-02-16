@@ -123,3 +123,145 @@ class CheckBoard:
         else:
             return(0)
 
+
+class CheckBoard4by4:
+    def __init__(self):
+        self.game = Game_Board.Board4x4()
+
+    #check for the 10 possible winning outcomes
+    def tryToWin(self):
+        if(self.game.Spaces[1].state + self.game.Spaces[2].state + self.game.Spaces[3].state +
+           self.game.Spaces[4].state == 3):
+            return ("top row")
+        elif(self.game.Spaces[5].state + self.game.Spaces[6].state + self.game.Spaces[7].state +
+           self.game.Spaces[8].state == 3):
+            return ("second row")
+        elif(self.game.Spaces[9].state + self.game.Spaces[10].state + self.game.Spaces[11].state +
+           self.game.Spaces[12].state == 3):
+            return ("third row")
+        elif(self.game.Spaces[13].state + self.game.Spaces[14].state + self.game.Spaces[15].state +
+           self.game.Spaces[16].state == 3):
+            return ("last row")
+        elif(self.game.Spaces[1].state + self.game.Spaces[5].state + self.game.Spaces[9].state +
+           self.game.Spaces[13].state == 3):
+            return ("first column")
+        elif(self.game.Spaces[2].state + self.game.Spaces[6].state + self.game.Spaces[10].state +
+           self.game.Spaces[14].state == 3):
+            return ("second column")
+        elif(self.game.Spaces[3].state + self.game.Spaces[7].state + self.game.Spaces[11].state +
+           self.game.Spaces[15].state == 3):
+            return ("third column")
+        elif(self.game.Spaces[4].state + self.game.Spaces[8].state + self.game.Spaces[12].state +
+           self.game.Spaces[16].state == 3):
+            return ("last column")
+        elif(self.game.Spaces[1].state + self.game.Spaces[6].state + self.game.Spaces[11].state +
+           self.game.Spaces[16].state == 3):
+            return ("down diagnol")
+        elif(self.game.Spaces[4].state + self.game.Spaces[7].state + self.game.Spaces[10].state +
+           self.game.Spaces[13].state == 3):
+            return ("up diagnol")
+        else:
+            return ("none")
+
+    #block opponent if they can win
+    def checkOpponent(self):
+        if(self.game.Spaces[1].state + self.game.Spaces[2].state + self.game.Spaces[3].state +
+           self.game.Spaces[4].state == 30):
+            return ("top row")
+        elif(self.game.Spaces[5].state + self.game.Spaces[6].state + self.game.Spaces[7].state +
+           self.game.Spaces[8].state == 30):
+            return ("second row")
+        elif(self.game.Spaces[9].state + self.game.Spaces[10].state + self.game.Spaces[11].state +
+           self.game.Spaces[12].state == 30):
+            return ("third row")
+        elif(self.game.Spaces[13].state + self.game.Spaces[14].state + self.game.Spaces[15].state +
+           self.game.Spaces[16].state == 30):
+            return ("last row")
+        elif(self.game.Spaces[1].state + self.game.Spaces[5].state + self.game.Spaces[9].state +
+           self.game.Spaces[13].state == 30):
+            return ("first column")
+        elif(self.game.Spaces[2].state + self.game.Spaces[6].state + self.game.Spaces[10].state +
+           self.game.Spaces[14].state == 30):
+            return ("second column")
+        elif(self.game.Spaces[3].state + self.game.Spaces[7].state + self.game.Spaces[11].state +
+           self.game.Spaces[15].state == 30):
+            return ("third column")
+        elif(self.game.Spaces[4].state + self.game.Spaces[8].state + self.game.Spaces[12].state +
+           self.game.Spaces[16].state == 30):
+            return ("last column")
+        elif(self.game.Spaces[1].state + self.game.Spaces[6].state + self.game.Spaces[11].state +
+           self.game.Spaces[16].state == 30):
+            return ("down diagnol")
+        elif(self.game.Spaces[4].state + self.game.Spaces[7].state + self.game.Spaces[10].state +
+           self.game.Spaces[13].state == 30):
+            return ("up diagnol")
+        else:
+            return ("none")
+
+    #check to see if anyone has won
+    def checkForWin(self):
+        #see if the computer won
+        if(self.game.Spaces[1].state + self.game.Spaces[2].state + self.game.Spaces[3].state +
+           self.game.Spaces[4].state == 4):
+            return (1)
+        elif(self.game.Spaces[5].state + self.game.Spaces[6].state + self.game.Spaces[7].state +
+           self.game.Spaces[8].state == 4):
+            return (1)
+        elif(self.game.Spaces[9].state + self.game.Spaces[10].state + self.game.Spaces[11].state +
+           self.game.Spaces[12].state == 4):
+            return (1)
+        elif(self.game.Spaces[13].state + self.game.Spaces[14].state + self.game.Spaces[15].state +
+           self.game.Spaces[16].state == 4):
+            return (1)
+        elif(self.game.Spaces[1].state + self.game.Spaces[5].state + self.game.Spaces[9].state +
+           self.game.Spaces[13].state == 4):
+            return (1)
+        elif(self.game.Spaces[2].state + self.game.Spaces[6].state + self.game.Spaces[10].state +
+           self.game.Spaces[14].state == 4):
+            return (1)
+        elif(self.game.Spaces[3].state + self.game.Spaces[7].state + self.game.Spaces[11].state +
+           self.game.Spaces[15].state == 4):
+            return (1)
+        elif(self.game.Spaces[4].state + self.game.Spaces[8].state + self.game.Spaces[12].state +
+           self.game.Spaces[16].state == 4):
+            return (1)
+        elif(self.game.Spaces[1].state + self.game.Spaces[6].state + self.game.Spaces[11].state +
+           self.game.Spaces[16].state == 4):
+            return (1)
+        elif(self.game.Spaces[4].state + self.game.Spaces[7].state + self.game.Spaces[10].state +
+           self.game.Spaces[13].state == 4):
+            return (1)
+
+        #see if the human won
+        elif(self.game.Spaces[1].state + self.game.Spaces[2].state + self.game.Spaces[3].state +
+           self.game.Spaces[4].state == 40):
+            return (-1)
+        elif(self.game.Spaces[5].state + self.game.Spaces[6].state + self.game.Spaces[7].state +
+           self.game.Spaces[8].state == 40):
+            return (-1)
+        elif(self.game.Spaces[9].state + self.game.Spaces[10].state + self.game.Spaces[11].state +
+           self.game.Spaces[12].state == 40):
+            return (-1)
+        elif(self.game.Spaces[13].state + self.game.Spaces[14].state + self.game.Spaces[15].state +
+           self.game.Spaces[16].state == 40):
+            return (-1)
+        elif(self.game.Spaces[1].state + self.game.Spaces[5].state + self.game.Spaces[9].state +
+           self.game.Spaces[13].state == 40):
+            return (-1)
+        elif(self.game.Spaces[2].state + self.game.Spaces[6].state + self.game.Spaces[10].state +
+           self.game.Spaces[14].state == 40):
+            return (-1)
+        elif(self.game.Spaces[3].state + self.game.Spaces[7].state + self.game.Spaces[11].state +
+           self.game.Spaces[15].state == 40):
+            return (-1)
+        elif(self.game.Spaces[4].state + self.game.Spaces[8].state + self.game.Spaces[12].state +
+           self.game.Spaces[16].state == 40):
+            return (-1)
+        elif(self.game.Spaces[1].state + self.game.Spaces[6].state + self.game.Spaces[11].state +
+           self.game.Spaces[16].state == 40):
+            return (-1)
+        elif(self.game.Spaces[4].state + self.game.Spaces[7].state + self.game.Spaces[10].state +
+           self.game.Spaces[13].state == 40):
+            return (-1)
+        else:
+            return (0)

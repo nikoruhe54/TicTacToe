@@ -6,17 +6,17 @@ checkBoard = Check_Board.CheckBoard()
 
 #high level logic for a computer move
 def makeComputerMove(skill, order):
-    if (skill == "hard"):
+    if (skill == "expert"):
         #win the game if possible
         check = checkBoard.tryToWin()
         if (check != "none"):
-            makeWinningMove(check)
+            takeAction(check)
             return(0)
         else:
             #block opponent from winning the game if possible
             check = checkBoard.checkOpponent()
             if (check != "none"):
-                blockOpponent(check)
+                takeAction(check)
                 return(0)
 
         #play into the future
@@ -36,8 +36,8 @@ def makeComputerMove(skill, order):
                 return(0)
         #if winning and blocking the opponent are not possible, make a strategic move
         scanForBestMove(order)
-    elif (skill == "easy"):
-        #easy skill level always just makes a random move
+    elif (skill == "beginner"):
+        #beginner skill level always just makes a random move
         rand = 0
         while (rand >= 0):
             rand = random.randint(1, 9)
@@ -256,7 +256,7 @@ def updateWinningMoves():
         checkBoard.game.Spaces[4].winMoves += 1
 
 
-def blockOpponent(target):
+def takeAction(target):
     if(target == "top row"):
         for i in range (1,4):
             if (checkBoard.game.Spaces[i].state == 0):
@@ -300,49 +300,6 @@ def blockOpponent(target):
                 playMove(i, "computer")
             i = i + 2
 
-def makeWinningMove(target):
-    if(target == "top row"):
-        for i in range (1,4):
-            if (checkBoard.game.Spaces[i].state == 0):
-                playMove(i, "computer")
-    elif(target == "middle row"):
-        for i in range (4,7):
-            if (checkBoard.game.Spaces[i].state == 0):
-                playMove(i, "computer")
-    elif(target == "bottom row"):
-        for i in range (7,10):
-            if (checkBoard.game.Spaces[i].state == 0):
-                playMove(i, "computer")
-    elif(target == "left column"):
-        i = 1
-        while (i < 8):
-            if (checkBoard.game.Spaces[i].state == 0):
-                playMove(i, "computer")
-            i = i + 3
-    elif(target == "middle column"):
-        i = 2
-        while (i < 9):
-            if (checkBoard.game.Spaces[i].state == 0):
-                playMove(i, "computer")
-            i = i + 3
-    elif(target == "right column"):
-        i = 3
-        while (i < 10):
-            if (checkBoard.game.Spaces[i].state == 0):
-                playMove(i, "computer")
-            i = i + 3
-    elif(target == "down diagnol"):
-        i = 1
-        while (i < 10):
-            if (checkBoard.game.Spaces[i].state == 0):
-                playMove(i, "computer")
-            i = i + 4
-    elif(target == "up diagnol"):
-        i = 3
-        while (i < 8):
-            if(checkBoard.game.Spaces[i].state == 0):
-                playMove(i, "computer")
-            i = i + 2
 
 def resetGame():
     for x in range(1, 10):
